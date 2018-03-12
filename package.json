@@ -1,0 +1,27 @@
+{
+  "name": "webpack-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleVul/webpack-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleVul/webpack-playground/issues"
+  },
+  "homepage": "https://github.com/AleVul/webpack-playground#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "webpack": "^4.1.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "sequelize": "^4.36.0"
+  }
+}
