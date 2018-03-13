@@ -4,7 +4,11 @@
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./build",
+    "build": "webpack -d --config webpack.v2.js",
+    "build:release": "NODE_END=production webpack --config webpack.v2.js",
+    "clean": "rm -rf ./build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,9 @@
   "homepage": "https://github.com/AleVul/webpack-playground#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "webpack": "^4.1.1"
+    "babel-loader": "^7.1.4",
+    "webpack": "^4.1.1",
+    "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "express": "^4.16.2",
