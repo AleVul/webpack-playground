@@ -1,9 +1,17 @@
-//Entry point for the server app
+import path from "path";
+import express from "express";
+import router from "./routes";
 
-const express = require("express");
-const router = require("./routes");
 const app = express();
 
+app.use(express.static(path.join(__dirname, "publics")));
 app.use(router);
+app.use((err, req, res, next) => {
+  if (err) console.error(err);
+  res.end();
+});
 
-app.listen(8080);
+app.listen(8080, err => {
+  if (err) console.error(err);
+  console.log("Server launched");
+});

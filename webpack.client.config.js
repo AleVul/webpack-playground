@@ -1,4 +1,5 @@
 const path = require("path");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   entry: {
@@ -9,7 +10,19 @@ module.exports = {
     filename: "[name].js",
     path: path.join(__dirname, "build", "publics", "js")
   },
+  externals: [nodeExternals()],
   module: {
-    rules: [{ test: /\.js$/, use: "babel-loader" }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["es2015"]
+          }
+        }
+      }
+    ]
   }
 };
