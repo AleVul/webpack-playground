@@ -1,9 +1,5 @@
 "use strict";
 
-const models = require("../models");
-const User = models.user;
-const _publics = {};
+import { user as User } from "../models";
 
-_publics.getUsers = User.findAll({});
-
-module.exports = _publics;
+export const getUsers = () => User.findAll({});
