@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/", (req, res, next) =>
     getUsers()
-        .then(users =>
+        .then(() =>
             res.sendFile(path.join(__dirname, "views", "index.html"))
         )
         .catch(next)

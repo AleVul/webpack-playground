@@ -6,7 +6,8 @@ import Sequelize from "sequelize";
 
 const sequelize = new Sequelize("test", {
     host: "localhost",
-    dialect: "sqlite"
+    dialect: "sqlite",
+    storage: "./db.sqlite"
 });
 const db = {};
 
