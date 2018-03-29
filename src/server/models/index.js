@@ -4,16 +4,17 @@ import fs from "fs";
 import path from "path";
 import Sequelize from "sequelize";
 
-const sequelize = new Sequelize("test", {
-    host: "localhost",
-    dialect: "sqlite",
-    storage: "./db.sqlite"
+const sequelize = new Sequelize({
+    database: "test",
+    host: "127.0.0.1",
+    dialect: "sqlite"
 });
 const db = {};
-
+console.log("This is current dirname");
+console.log(__dirname);
 fs
     .readdirSync(__dirname)
-    .filter(file => file.indexOf(".js") !== 0 && file !== __filename)
+    .filter(file => file.indexOf(".js") !== 0 && file !== "index.js")
     .forEach(file => {
         const model = sequelize.import(path.join(__dirname, file));
         db[model.name] = model;
