@@ -8,9 +8,7 @@ const router = express.Router();
 
 router.get("/", (req, res, next) =>
     getUsers()
-        .then(users =>
-            res.sendFile(path.join(__dirname, "views", "index.html"))
-        )
+        .then(users => res.sendFile(path.join(__dirname, "views", "index.html")))
         .catch(next)
 );
 
