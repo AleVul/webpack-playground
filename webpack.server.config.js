@@ -10,11 +10,11 @@ module.exports = {
     },
     target: "node",
     node: {
-        __dirname: false,
+        __dirname: true,
         __filename: false
     },
     externals: [nodeExternals()],
-    devtool: "eval-source-map",
+    devtool: "eval-source-map", //TODO: this is for development, remove it for prod.
     module: {
         rules: [
             {
