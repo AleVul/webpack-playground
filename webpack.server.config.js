@@ -1,6 +1,8 @@
 const path = require("path");
+const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const fs = require("fs");
 
 module.exports = {
     entry: "./src/server/index.js",
@@ -10,11 +12,11 @@ module.exports = {
     },
     target: "node",
     node: {
-        __dirname: true,
+        __dirname: false,
         __filename: false
     },
-    externals: [nodeExternals()],
-    devtool: "eval-source-map", //TODO: this is for development, remove it for prod.
+    externals: nodeExternals({whitelist: ["sequelize"]}),
+    devtool: "source-map", //TODO: this is for development, remove it for prod.
     module: {
         rules: [
             {
